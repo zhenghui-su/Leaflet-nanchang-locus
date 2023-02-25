@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- <link rel="stylesheet" href="css/index.css" /> -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+			integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+			crossorigin="" />
+		<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+			integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+			crossorigin=""></script>
+		<script src="js/echarts.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+		<script src="Line-start(1-20)/myLines1.js"></script>
+		<script src="Line-start(1-20)/myLines2.js"></script>
+		<script src="Line-start(1-20)/myLines3.js"></script>
+		<script src="Line-start(1-20)/myLines4.js"></script>
+		<script src="Line-start(1-20)/myLines5.js"></script>
+		<script src="Line-start(1-20)/myLines6.js"></script>
+		<script src="Line-start(1-20)/myLines7.js"></script>
+		<script src="Line-start(1-20)/myLines8.js"></script>
+		<script src="Line-start(1-20)/myLines9.js"></script>
+		<script src="Line-start(1-20)/myLines10.js"></script>
+		<script src="Line-start(1-20)/myLines11.js"></script>
+		<script src="Line-start(1-20)/myLines12.js"></script>
+		<script src="Line-start(1-20)/myLines13.js"></script>
+		<script src="Line-start(1-20)/myLines14.js"></script>
+		<script src="Line-start(1-20)/myLines15.js"></script>
+		<script src="Line-start(1-20)/myLines16.js"></script>
+		<script src="Line-start(1-20)/myLines17.js"></script>
+		<script src="Line-start(1-20)/myLines18.js"></script>
+		<script src="Line-start(1-20)/myLines19.js"></script>
+		<script src="Line-start(1-20)/myLines20.js"></script>
+
+		<script src="Line-start(21-40)/myLines21.js"></script>
+		<script src="Line-start(21-40)/myLines22.js"></script>
+		<script src="Line-start(21-40)/myLines23.js"></script>
+		<script src="Line-start(21-40)/myLines24.js"></script>
+		<script src="Line-start(21-40)/myLines25.js"></script>
+		<script src="Line-start(21-40)/myLines26.js"></script>
+		<script src="Line-start(21-40)/myLines27.js"></script>
+		<script src="Line-start(21-40)/myLines28.js"></script>
+		<script src="Line-start(21-40)/myLines29.js"></script>
+		<script src="Line-start(21-40)/myLines30.js"></script>
+		<script src="Line-start(21-40)/myLines31.js"></script>
+		<script src="Line-start(21-40)/myLines32.js"></script>
+		<script src="Line-start(21-40)/myLines33.js"></script>
+		<script src="Line-start(21-40)/myLines34.js"></script>
+		<script src="Line-start(21-40)/myLines35.js"></script>
+		<script src="Line-start(21-40)/myLines36.js"></script>
+		<script src="Line-start(21-40)/myLines37.js"></script>
+		<script src="Line-start(21-40)/myLines38.js"></script>
+		<script src="Line-start(21-40)/myLines39.js"></script>
+		<script src="Line-start(21-40)/myLines40.js"></script>
+
+		<script src="Line-start(41-63)/myLines41.js"></script>
+		<script src="Line-start(41-63)/myLines42.js"></script>
+		<script src="Line-start(41-63)/myLines43.js"></script>
+		<script src="Line-start(41-63)/myLines44.js"></script>
+		<script src="Line-start(41-63)/myLines45.js"></script>
+		<script src="Line-start(41-63)/myLines46.js"></script>
+		<script src="Line-start(41-63)/myLines47.js"></script>
+		<script src="Line-start(41-63)/myLines48.js"></script>
+		<script src="Line-start(41-63)/myLines49.js"></script>
+		<script src="Line-start(41-63)/myLines50.js"></script>
+		<script src="Line-start(41-63)/myLines51.js"></script>
+		<script src="Line-start(41-63)/myLines52.js"></script>
+		<script src="Line-start(41-63)/myLines53.js"></script>
+		<script src="Line-start(41-63)/myLines54.js"></script>
+		<script src="Line-start(41-63)/myLines55.js"></script>
+		<script src="Line-start(41-63)/myLines56.js"></script>
+		<script src="Line-start(41-63)/myLines57.js"></script>
+		<script src="Line-start(41-63)/myLines58.js"></script>
+		<script src="Line-start(41-63)/myLines59.js"></script>
+		<script src="Line-start(41-63)/myLines60.js"></script>
+		<script src="Line-start(41-63)/myLines61.js"></script>
+		<script src="Line-start(41-63)/myLines62.js"></script>
+		<script src="Line-start(41-63)/myLines63.js"></script>
+
+
+
+		<!-- <script src="js/line_stack.js"></script> -->
+		<style>
+			#map {
+				height: 1000px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div id="map"></div>
+		<script>
+			var mymap = L.map('map').setView([28.6363972, 115.851022], 13);
+			L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+				maxZoom: 23,
+				attribution: '© OpenStreetMap'
+			}).addTo(mymap);
+			//const marker1 = L.marker([28.6381755, 115.911963]).addTo(mymap);
+			var popChartMarker1=L.marker([28.63980821,115.912022]).addTo(mymap);
+			
+			//配置弹出框
+			var content1='<div style="width:400px;height:300px" id="line"></div>';
+			popChartMarker1.bindPopup(content1,{minWidth:400});
+			popChartMarker1.on('popupopen',function(e){
+				let myChart=echarts.init(document.getElementById('line'));
+			    let option={
+			              // backgroundColor: "#000000",
+			              title: {
+			              	text: '快速路\n服务水平三\n比对曲线',
+							textStyle: {
+								fontSize:10,
+							}
+			              },
+			              tooltip: {
+			              	trigger: 'axis'
+			              },
+			              legend: {
+			              	textStyle: {
+			              		color: '#90979c',
+			              	},
+			              	data: ['实际值', '预测值1', '预测值2']
+			              },
+			              grid: {
+			              	left: '3%',
+			              	right: '4%',
+			              	bottom: '3%',
+			              	containLabel: true
+			              },
+			              // toolbox: {
+			              // 	feature: {
+			              // 		saveAsImage: {}
+			              // 	}
+			              // },
+			              xAxis: {
+			              	type: 'category',
+			              	boundaryGap: false,
+			              	scale: true,
+			              	data: ['400km', '100km', '500km', '200km', '600km', '300km', '700km']
+			              },
+			              yAxis: {
+			              	type: 'value',
+			              	scale: true,
+			              
+			              },
+			              series: [{
+			              		name: '预测值1',
+			              		type: 'line',
+			              		stack: 'Total',
+			              		smooth: true,
+			              		data: [5287, 1322, 6608, 2643, 7930, 3965, 9252]
+			              	},
+			              	{
+			              		name: '预测值2',
+			              		type: 'line',
+			              		stack: 'Total',
+			              		smooth: true,
+			              		data: [5356, 1339, 6695, 2678, 8034, 4017, 9373]
+			              	},
+			              	{
+			              		name: '实际值',
+			              		type: 'line',
+			              		stack: 'Total',
+			              		smooth: true,
+			              		data: [6400, 1600, 7999, 3200, 9599, 4800, 11199]
+			              	}
+			              
+			              ]
+			        }
+			    myChart.setOption(option);
+			});
+			//115.9044837, 28.61269769999999
+			var popChartMarker2=L.marker([28.61269769999999,115.9044837]).addTo(mymap);
+			var content2='<div style="width:1000px;height:600px" id="pie"></div>';
+			popChartMarker2.bindPopup(content2,{minWidth:1000,maxHeight:700});
+			popChartMarker2.on('popupopen',function(e){
+			    let myChart=echarts.init(document.getElementById('pie'));
+			    let option={
+					title: {
+						text: '服务水平三',
+						top:'17%',
+						left:'8%'
+					},
+					tooltip: {
+						trigger: 'item',
+						formatter: '{a} <br/>{b}: {c} ({d}%)'
+					},
+					legend: {
+						data: [
+							'主干路',
+							'支路',
+							'快速路',
+							'次干路',
+							'快速路转通畅',
+							'快速路转基本通畅',
+							'主干路转通畅',
+							'主干路转基本通畅',
+							'次干路转通畅',
+							'次干路转基本通畅',
+							'支路转通畅',
+							'支路转基本通畅'
+						]
+					},
+					series: [{
+							name: '碳排放总量',
+							type: 'pie',
+							selectedMode: 'single',
+							radius: [0, '30%'],
+							label: {
+								position: 'inner',
+								fontSize: 14
+							},
+							labelLine: {
+								show: false
+							},
+							color:['#95bf77','#bbd9b3','#d6e3f7','#efd7af'],
+							data: [{
+									value: 1518,
+									name: '快速路'
+								},
+								{
+									value: 1732,
+									name: '主干路'
+								},
+								{
+									value: 2368,
+									name: '次干路'
+								},
+								{
+									value: 1881,
+									name: '支路',
+									selected: true
+								}
+							]
+						},
+						{
+							name: '拥堵碳排放',
+							type: 'pie',
+							radius: ['40%', '50%'],
+							labelLine: {
+								show: false
+							},
+							label: {
+								position: 'inner',
+								fontSize: 14
+							},
+							data: [
+					
+								{
+									value: 920,
+									name: '快速路'
+								},
+								{
+									value: 1050,
+									name: '主干路'
+								},
+								{
+									value: 1435,
+									name: '次干路'
+								},
+								{
+									value: 1140,
+									name: '支路'
+								}
+					
+							]
+						},
+						{
+							name: '碳排放',
+							type: 'pie',
+							radius: ['60%', '75%'],
+							labelLine: {
+								length: 30
+							},
+							label: {
+								formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+								backgroundColor: '#F6F8FC',
+								borderColor: '#8C8D8E',
+								borderWidth: 1,
+								borderRadius: 4,
+								rich: {
+									a: {
+										color: '#6E7079',
+										lineHeight: 22,
+										align: 'center'
+									},
+									hr: {
+										borderColor: '#8C8D8E',
+										width: '100%',
+										borderWidth: 1,
+										height: 0
+									},
+									b: {
+										color: '#4C5058',
+										fontSize: 14,
+										fontWeight: 'bold',
+										lineHeight: 33
+									},
+									per: {
+										color: '#fff',
+										backgroundColor: '#4C5058',
+										padding: [3, 4],
+										borderRadius: 4
+									}
+								}
+							},
+							color:['#95bf77','#bbd9b3','#d6e3f7','#efd7af','#c1c181','#ecd7a0','#e0b2b2','#8dc9af'],
+							data: [
+					
+								{
+									value: 760,
+									name: '快速路转通畅'
+								},
+								{
+									value: 770,
+									name: '快速路转基本通畅'
+								},
+								{
+									value: 810,
+									name: '主干路转通畅'
+								},
+								{
+									value: 975,
+									name: '主干路转基本通畅'
+								},
+								{
+									value: 955,
+									name: '次干路转通畅'
+								},
+								{
+									value: 1010,
+									name: '次干路转基本通畅'
+								},
+								{
+									value: 800,
+									name: '支路转通畅'
+								},
+								{
+									value: 1015,
+									name: '支路转基本通畅'
+								}
+							]
+						}
+					],
+					}
+					myChart.setOption(option);
+				});
+			var popChartMarker3=L.marker([28.61269769999999,115.9644837]).addTo(mymap);	
+			var content3 = '快速路<br>服务水平3<br><a href="http://127.0.0.1:8848/%E8%BD%A8%E8%BF%B9/%E6%9C%8D%E5%8A%A1%E6%B0%B4%E5%B9%B3%E4%B8%89.html">进入</a>';
+			popChartMarker3.bindPopup(content3,{});
+			var myStyle = {
+				//#ff0000
+				"color": "#ff0000",
+				"weight": 3,
+				"opacity": 0.5
+			};
+			var style1 = {
+				"color": "#ff0000",
+				"weight": 8,
+				"opacity": 1
+			};
+			L.geoJSON(myLines1, {
+				style: myStyle
+			}).addTo(mymap);
+			
+			L.geoJSON(myLines2, {
+				style: myStyle
+			}).addTo(mymap);
+
+			L.geoJSON(myLines3, {
+				style: myStyle
+			}).addTo(mymap);
+
+			L.geoJSON(myLines4, {
+				style: myStyle
+			}).addTo(mymap);
+
+			L.geoJSON(myLines5, {
+				style: myStyle
+			}).addTo(mymap);
+
+			L.geoJSON(myLines6, {
+				style: myStyle
+			}).addTo(mymap);
+
+			L.geoJSON(myLines7, {
+				style: myStyle
+			}).addTo(mymap);
+
+			L.geoJSON(myLines8, {
+				style: myStyle
+			}).addTo(mymap);
+
+			L.geoJSON(myLines9, {
+				style: myStyle
+			}).addTo(mymap);
+
+			L.geoJSON(myLines10, {
+				style: myStyle
+			}).addTo(mymap);
+
+			L.geoJSON(myLines11, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines12, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines13, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines14, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines15, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines16, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines17, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines18, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines19, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines20, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines21, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines22, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines23, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines24, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines25, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines26, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines27, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines28, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines29, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines30, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines31, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines32, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines33, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines34, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines35, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines36, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines37, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines38, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines39, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines40, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines41, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines42, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines43, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines44, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines45, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines46, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines47, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines48, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines49, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines50, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines51, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines52, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines53, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines54, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines55, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines56, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines57, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines58, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines59, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines60, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines61, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines62, {
+				style: myStyle
+			}).addTo(mymap);
+			L.geoJSON(myLines63, {
+				style: myStyle
+			}).addTo(mymap);
+		</script>
+	</body>
+</html>
